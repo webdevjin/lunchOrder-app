@@ -1,0 +1,39 @@
+<% if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
+<br>
+<br>
+<div class="cart"><h2>Your order summary</h2></div>
+  <table class="ui celled striped table">
+      <thead>
+        <th>Student name</th>
+        <th>Grade</th>
+        <th>Lunch</th>
+        <th>Description</th>
+        <th>Image</th>
+        <th>Delivery Day</th>
+        <th>Qty</th>
+        <th>Price/unit</th>
+        <th>Total price</th>
+      </thead>
+      <% @order.line_items.each do |item| %>
+        <tr>
+          <!-- <td><%= item.qty %> &times;</td> -->
+          <td class="cart_item"><%= item.student.name %></td>
+          <td class="cart_item"><%= item.student.grade %></td>
+          <td class="cart_item"><%= item.lunch.lunchname %></td>
+          <td class="cart_item"><%= item.lunch.description %></td>
+          <td class="cart_item"><%= image_tag item.lunch.image_url%></td>
+          <td class="cart_item"><%= item.delivery_day %></td>
+          <td class="cart_item"><%= item.qty %></td>
+          <td class="cart_item"><%= item.lunch.price %></td>
+          <td class="cart_item"><%= item.total_price %></td>
+        </tr>
+          <tr><td colspan="8">Amount due</td><td><%= item.amount_due %></td></tr>
+      <% end %>
+
+    </table>
+
+    <h2>Payment information</h2>
+
+  </div>

@@ -1,0 +1,39 @@
+<% if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
+<p></p>
+
+<div class="cart"><h1>Your order summary</h1></div>
+<p><button class="ui right floated grey button">Proceed to checkout</button></p>
+<br>
+<br>
+    <table class="ui celled striped table">
+      <thead>
+        <tr>
+          <th>Student Name</th>
+          <th>Grade</th>
+          <th>Lunch</th>
+          <th>Delivery Day</th>
+          <th>Qty</th>
+          <th>$Price/unit</th>
+
+      </thead>
+      <% @current_cart.line_items.each do |item| %>
+        <tr>
+          <!-- <td><%= item.qty %> &times;</td> -->
+          <td class="cart_item"><%=item.student.name %></td>
+          <td class="cart_item"><%= item.student.grade %></td>
+          <td class="cart_item"><%= item.lunch.lunchname %></td>
+          <td class="cart_item"><%= item.delivery_day %></td>
+          <td class="cart_item"><%= item.qty %></td>
+          <td class="cart_item"><%= item.lunch.price%></td>
+        </tr>
+      <% end %>
+      <!--tr class="total_line">
+          <td colspan="5">Total price</td>
+          <td class="total_cell"><%# number_to_currency(@cart.total_price) %-</td>
+        </tr-->
+
+    </table>
+
+  </div>

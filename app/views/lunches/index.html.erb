@@ -1,0 +1,57 @@
+<%= form_tag orders_path, method: "POST" do %>
+  <div class="ui left floated red segment"><p></p>
+    <h2>Order lunch: </h2>
+    <select name="student_id" id="std">
+      <option>Choose Student</option>
+      <%= @students.each do |student| %>
+        <option value="<%= student.id %>"><%= student.name %></option>
+
+      <% end %>
+    </select>
+
+    <h2><%= link_to "Add student", new_student_path, class: 'ui grey button' %></h2>
+  </div>
+  <!--div class="ui right float red segment"><h2>Lunch order for: <%# @student.name %></h2></div-->
+  <table class="ui celled striped table">
+    <thead>
+      <tr>
+        <th>Qty</th>
+        <th>Lunch</th>
+        <th>Description</th>
+        <!--th>Image</th-->
+        <th>Price/unit</th>
+        <th>Delivery Day</th>
+      </tr>
+        <tbody>
+          <% @lunches.each_with_index do |lunch,i| %>
+            <tr>
+              <input name="line_items[<%= i %>][lunch_id]" value="<%= lunch.id %>" type="hidden" />
+            <td>
+              <select name="line_items[<%= i %>][qty]" id="qty">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </td>
+            <td><%= lunch.lunchname %></td>
+            <td><%= lunch.description %></td>
+            <!--td><%= image_tag(lunch.image_url) %></td-->
+            <td><%= lunch.price %></td>
+            <td><select name="line_items[<%= i %>][day]" id="day">
+              <option value="default">Day</option>
+              <option value="mon">Monday</option>
+              <option value="tue">Tuesday</option>
+              <option value="wed">Wednesday</option>
+              <option value="thu">Thursday</option>
+              <option value="fri">Friday</option>
+            </select></td>
+          </tr>
+        <% end %>
+        </tbody>
+    </thead>
+  </table>
+<div><p><button class="ui right floated grey button">Place order</button></p></div>
+<%end%>
+</div>

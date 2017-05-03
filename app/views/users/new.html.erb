@@ -1,0 +1,21 @@
+
+<h1>Sign Up</h1>
+<div class="ui red segment">
+<%= form_for @user do |u| %>
+<p>
+  <%= u.label :name %>
+  <%= u.text_field :name %>
+</p>
+<p>
+<%= u.label :email%>
+<%= u.text_field :email %>
+</p>
+<p>
+  <%= u.label :password %>
+  <%= u.password_field :password %>
+</p>
+<p>
+  <%= u.submit "Sign Up"%>
+</p>
+</div>
+<% end %>

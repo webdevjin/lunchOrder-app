@@ -1,0 +1,19 @@
+<div class="ui red segment">
+
+<h2>Add student</h2>
+
+<%= form_for @student do |f|%>
+  <%= render partial: "includes/form_errors", locals: {form: f} %>
+  <p>
+    <%= f.label :studentname %>
+    <%= f.text_field :name %>
+    <p>
+      <%= f.label :grade %>
+      <%= f.text_field :grade %>
+    </p>
+  </p>
+  <p>
+    <%= f.submit "Add student" %>
+  </p>
+<%end%>
+</div>

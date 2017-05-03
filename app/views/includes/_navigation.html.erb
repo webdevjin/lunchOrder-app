@@ -1,0 +1,25 @@
+<!--div>
+    <%= image_tag "logo.png", class: "logo" %>
+</div-->
+
+<div class="ui grey vertical segment">
+      <%= link_to root_path, class: "ui grey button" do %>Home
+        <%= link_to "Order Lunch", lunches_path, class: "ui grey button" %>
+        <% if @current_user.present? %>
+          <%= link_to "Your Account", user_path(id: @current_user.id ), class: "ui grey button" %>
+          <!--%= link_to "View Order", order_path(id: @current_user.id ), class: "u grey button" %-->
+        <% end %>
+        <% unless @current_user.present? %>
+          <%= link_to "Sign In", signin_path, class: "ui grey button" %>
+          <%= link_to "Sign Up", new_user_path, class: "ui grey button" %>
+        <% else %>
+          <%= link_to "Sign Out", signout_path, class: "ui grey button", method: "delete" %>
+        <% end %>
+        </div>
+      <% end%>
+      <div class="greeting">
+      <% if @current_user.present? %>
+        Hi, <%= @current_user.name %>
+      <% end %>
+      </div>
+</div>
