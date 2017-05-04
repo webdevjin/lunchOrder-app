@@ -1,11 +1,11 @@
 <%= form_tag orders_path, method: "POST" do %>
-<p><div class="ui right floaedt red segment" id="student-menu-name"><h3>Lunch order for  <span id="student-name"></span></h3></div><p>
-  <div class="ui left floated red segment">
+<p><div class="ui right floated green segment" id="student-menu-name"><h3>Lunch order for  <span id="student-name"></span></h3></div><p>
+  <div class="ui left floated green segment">
     <h2>Order lunch: </h2>
-    <h3>Please select student before order</h3>
+
 
    <% if @students.any? %>
-
+    <h4>Please select student before placing order</h4>
       <select name="student_id" id="std">
         <option>Choose Student</option>
         <%= @students.each do |student| %>
@@ -22,7 +22,8 @@
 
   </div>
 <div><%#  "Place order", orders_path, class: "ui grey button" %></div>
-<input type="submit" value="Place Order" class="ui grey button" />
+<div>
+  <br><br><br><br><br><br><input type="submit" value="Place Order" class="ui grey button right floated" /></div>
   <table class="ui celled striped table">
 
     <thead>
@@ -64,8 +65,7 @@
         </tbody>
     </thead>
   </table>
-  <br>
-
+<input type="submit" value="Place Order" class="ui grey button right floated" />
 <%end%>
 
 </div>

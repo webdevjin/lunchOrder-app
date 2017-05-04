@@ -1,23 +1,25 @@
-<!--div>
+<div style = "margin-top:20px;">
     <%= image_tag "logo.png", class: "logo" %>
-</div-->
+</div>
 
-<div class="ui grey vertical segment">
+<div class="ui buttons basic green right floated">
+
       <%= link_to root_path, class: "ui grey button" do %>Home
 
         <% if @current_user.present? %>
-            <%= link_to "Order Lunch", lunches_path, class: "ui grey button" %>
-          <%= link_to "Your Account", user_path(id: @current_user.id ), class: "ui grey button" %>
+            <%= link_to "Order Lunch", lunches_path, class: "ui button" %>
+          <%= link_to "Your Account", user_path(id: @current_user.id ), class: "ui button" %>
           <!--%= link_to "View Order", order_path(id: @current_user.id ), class: "u grey button" %-->
         <% end %>
         <% unless @current_user.present? %>
-          <%= link_to "Sign In", signin_path, class: "ui grey button" %>
-          <%= link_to "Sign Up", new_user_path, class: "ui grey button" %>
+          <%= link_to "Sign In", signin_path, class: "ui button" %>
+          <%= link_to "Sign Up", new_user_path, class: "ui button" %>
         <% else %>
-          <%= link_to "Sign Out", signout_path, class: "ui grey button", method: "delete" %>
+          <%= link_to "Sign Out", signout_path, class: "ui button", method: "delete" %>
         <% end %>
         </div>
       <% end%>
+      <br><br>
       <div class="greeting">
       <% if @current_user.present? %>
         Hi, <%= @current_user.name %>
