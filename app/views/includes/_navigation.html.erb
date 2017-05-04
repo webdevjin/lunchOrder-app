@@ -4,8 +4,9 @@
 
 <div class="ui grey vertical segment">
       <%= link_to root_path, class: "ui grey button" do %>Home
-        <%= link_to "Order Lunch", lunches_path, class: "ui grey button" %>
+
         <% if @current_user.present? %>
+            <%= link_to "Order Lunch", lunches_path, class: "ui grey button" %>
           <%= link_to "Your Account", user_path(id: @current_user.id ), class: "ui grey button" %>
           <!--%= link_to "View Order", order_path(id: @current_user.id ), class: "u grey button" %-->
         <% end %>

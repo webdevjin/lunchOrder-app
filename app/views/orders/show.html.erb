@@ -16,6 +16,7 @@
         <th>Price/unit</th>
         <th>Total price</th>
       </thead>
+      <% order_total = 0 %>
       <% @order.line_items.each do |item| %>
         <tr>
           <!-- <td><%= item.qty %> &times;</td> -->
@@ -26,14 +27,32 @@
           <td class="cart_item"><%= image_tag item.lunch.image_url%></td>
           <td class="cart_item"><%= item.delivery_day %></td>
           <td class="cart_item"><%= item.qty %></td>
-          <td class="cart_item"><%= item.lunch.price %></td>
-          <td class="cart_item"><%= item.total_price %></td>
+          <td class="cart_item"><%=  number_to_currency (item.lunch.price/100.0) %></td>
+          <td class="cart_item"><%=  number_to_currency (item.total_price/100.0) %></td>
         </tr>
-          <tr><td colspan="8">Amount due</td><td><%= item.amount_due %></td></tr>
+          <!--tr><td colspan="8">Amount due</td><td><%# item.amount_due %></td></tr-->
+        <% order_total += item.total_price %>
       <% end %>
+      <tr>
 
+        <td class="cart_item" colspan="8"><span style="float:right">Amount due</span></td>
+        <td class="cart_item"><%= number_to_currency (order_total/100.0) %></td>
+      </tr>
     </table>
 
     <h2>Payment information</h2>
+    <%= form_tag("/orders/#{@order.id}/payment", {method: :post}) do %>
+      <script
+        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-amount="<%= order_total %>"
+        data-name="LunchBox"
+        data-description="Order School lunch online"
+        data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+        data-locale="auto"
+        data-zip-code="true"
+        data-currency="aud">
+      </script>
+    <%end%>
 
   </div>

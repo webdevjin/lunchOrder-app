@@ -1,18 +1,30 @@
 <%= form_tag orders_path, method: "POST" do %>
-  <div class="ui left floated red segment"><p></p>
+<p><div class="ui right floaedt red segment" id="student-menu-name"><h3>Lunch order for  <span id="student-name"></span></h3></div><p>
+  <div class="ui left floated red segment">
     <h2>Order lunch: </h2>
-    <select name="student_id" id="std">
-      <option>Choose Student</option>
-      <%= @students.each do |student| %>
-        <option value="<%= student.id %>"><%= student.name %></option>
+    <h3>Please select student before order</h3>
 
-      <% end %>
-    </select>
+   <% if @students.any? %>
 
-    <h2><%= link_to "Add student", new_student_path, class: 'ui grey button' %></h2>
+      <select name="student_id" id="std">
+        <option>Choose Student</option>
+        <%= @students.each do |student| %>
+          <option value="<%= student.id %>"><%= student.name %></option>
+        <% end %>
+      </select>
+
+    <% else %>
+
+      <h4>You must add student first to order lunch</h4>
+      <p><%= link_to "Add student", new_student_path, class: 'ui grey button' %></p>
+
+    <% end %>
+
   </div>
-  <!--div class="ui right float red segment"><h2>Lunch order for: <%# @student.name %></h2></div-->
+<div><%#  "Place order", orders_path, class: "ui grey button" %></div>
+<input type="submit" value="Place Order" class="ui grey button" />
   <table class="ui celled striped table">
+
     <thead>
       <tr>
         <th>Qty</th>
@@ -27,7 +39,7 @@
             <tr>
               <input name="line_items[<%= i %>][lunch_id]" value="<%= lunch.id %>" type="hidden" />
             <td>
-              <select name="line_items[<%= i %>][qty]" id="qty">
+              <select name="line_items[<%= i %>][qty]" id="qty" required>
                 <option value="0">0</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -38,9 +50,9 @@
             <td><%= lunch.lunchname %></td>
             <td><%= lunch.description %></td>
             <!--td><%= image_tag(lunch.image_url) %></td-->
-            <td><%= lunch.price %></td>
-            <td><select name="line_items[<%= i %>][day]" id="day">
-              <option value="default">Day</option>
+            <td>$<%= lunch.price_in_dollars %></td>
+            <td><select name="line_items[<%= i %>][day]" id="day" required>
+              <option value="Select Day">Day</option>
               <option value="mon">Monday</option>
               <option value="tue">Tuesday</option>
               <option value="wed">Wednesday</option>
@@ -52,6 +64,8 @@
         </tbody>
     </thead>
   </table>
-<div><p><button class="ui right floated grey button">Place order</button></p></div>
+  <br>
+
 <%end%>
+
 </div>

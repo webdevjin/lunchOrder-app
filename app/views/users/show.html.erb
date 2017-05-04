@@ -1,2 +1,23 @@
+<p></p>
 
-<h1>Your Account summmary</h1>
+<div class="ui red segment"><h1>Your account summary</h1>
+<table class="ui celled striped table">
+  <thead>
+    <th>Student</th>
+    <th>Grade</th>
+    <th>Delete</th>
+  </thead>
+      <% @current_user.students.each do |e| %>
+        <tr>
+          <td><%= e.name %></td>
+          <td><%= e.grade %></td>
+          <td><%= link_to "Delete", student_path(e.id), method: "delete" %></td>
+        </tr>
+      <% end %>
+</table>
+<p><%= link_to "Add student", new_student_path, class: 'ui grey button' %></p>
+</div>
+<p></p>
+
+<p><%# button_to 'Delete student', student_path, method: :destroy %></p>
+<%= link_to "Go to lunch order", lunches_path, class: "ui right floated grey button" %>

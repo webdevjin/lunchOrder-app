@@ -4,13 +4,7 @@ class UsersController < ApplicationController
       @user = User.new
   end
 
-  def show
-    @user = User.find(params[:id])
-    if @user
-      render action: :show
-    else
-      redirect_to root_path
-    end
+  def show  
   end
 
   def create

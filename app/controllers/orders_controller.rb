@@ -25,5 +25,11 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
   end
 
+  def payment
+    order = Order.find(params[:id])
+    order.stripe_token = params[:stripeToken]
+    order.save
+  end
+
 
 end
