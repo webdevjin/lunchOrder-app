@@ -31,7 +31,7 @@ student_6 = Student.create(name:'Lara', grade:'4C', user_id:user_6.id)
 student_7 = Student.create(name:'Helen', grade:'5F', user_id:user_7.id)
 
 lunch_1 = Lunch.create(lunchname:'Macaroni & cheese', description:'Macaroni baked with cheese', image_url:'mccheese.png', price:300)
-lunch_2 = Lunch.create(lunchname:'Chicken Sticks', description:"Skewer of grilled chicken", image_url:'chicstix', price:425)
+lunch_2 = Lunch.create(lunchname:'Chicken Sticks', description:"Skewer of grilled chicken", image_url:'chicstix.png', price:425)
 lunch_3 = Lunch.create(lunchname:'Pasta Salad', description:"Mix of pasta, greenleaves with vinigrette dressing", image_url:'salad.png', price:550)
 lunch_4 = Lunch.create(lunchname:'Fried rice', description:"Fried rice with eggs and vege", image_url:'friedrice.png', price:450)
 lunch_5 = Lunch.create(lunchname:'Pasta Napolitana', description:'Pasta in tomato sauce', image_url:'napolitana.png', price:500)
