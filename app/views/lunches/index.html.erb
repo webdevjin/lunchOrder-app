@@ -50,7 +50,7 @@
             </td>
             <td><%= lunch.lunchname %></td>
             <td><%= lunch.description %></td>
-            <!--td><%# image_tag(lunch.image_url) %></td-->
+            <td><%= image_tag(lunch.image_url) %></td>
             <td>$<%= lunch.price_in_dollars %></td>
             <td><select name="line_items[<%= i %>][day]" id="day" required>
               <option value="Select Day">Day</option>
