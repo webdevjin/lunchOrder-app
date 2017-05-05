@@ -13,3 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).on('click', '.message .close', function() {
+    $(this)
+      .closest('.message')
+      .transition('fade')
+    ;
+  });
