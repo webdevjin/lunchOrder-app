@@ -1,11 +1,52 @@
 
-<h1>Welcome to Kidz Eatz</h1>
-<h2>Taking the stress out of preparing healthy food for growing bodies and minds</h2>
-<h3>Sign up with Kidz Eatz to start ordering process</h3>
 
-<div class="ui green segment">
-  <h2>Activities </h2><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec</p>
-Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec<br><br>
-  <div>
-  <div style="padding-right:100px;float:left;"><%= image_tag "forum.png" %></div>  <div style="padding-right:100px;float:left;"><%= image_tag "kids.png"%></div>  <div style=""><%= image_tag "foodfacts.png"%></div></div>
+  <p></p>
+  <h1>Welcome to Kidz Eatz</h1>
+  <h2>Taking the stress out of preparing healthy food for growing bodies and minds</h2>
+  <% unless @current_user.present? %>
+  <h3>Sign up with Kidz Eatz and start ordering now.</h3>
+  <% end %>
+
+  <div class="ui green segment">
+    <h2>Activities </h2><h3>At Kidz Eatz, we are parents too.<br><br>
+    We understand the challenges faced by time poor parents every day and the added stress of ensuring the kids have a healthy and nutritious meal at school that they will actually eat!<br><br>
+    Our range of nutritious meals have been given the highest approval by the toughest of critics...our kids.
+  </h3><br>
+<div style="width:100%; text-align:center;">
+  <div class="cardcontainer">
+  <div class="ui three column grid">
+    <div class="column">
+      <div class="ui fluid card">
+      <div class="image">
+      <%= image_tag "forum.png"  %>
+      </div>
+        <div class="content">
+            <div class="header">Views about health
+            </div>
+          </div>
+        </div>
+    </div>
+
+  <div class="column">
+      <div class="ui fluid card">
+    <div class="image">
+        <%= image_tag "kids.png" %>
+    </div>
+        <div class="content">
+            <div class="header">Interactive food games</div>
+        </div>
+    </div>
+  </div>
+
+    <div class="column">
+      <div class="ui fluid card">
+        <div class="image">
+            <%= image_tag "foodfacts.png" %>
+        </div>
+            <div class="content">
+              <div class="header">News about foods</div>
+            </div>
+    </div>
+  </div>
+    </div>
 </div>

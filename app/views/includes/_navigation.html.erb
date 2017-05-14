@@ -1,6 +1,13 @@
 <div style = "margin-top:20px;">
     <%= image_tag "logo.png", class: "logo" %>
+
+    <% if @current_user.present? %>
+      <div class="ui basic image label right floated">
+      <h4>Hi, <%= @current_user.name %></h4>
+    <% end %>
+    </div>
 </div>
+
 
 <div class="ui buttons basic green right floated">
 
@@ -20,9 +27,5 @@
         </div>
       <% end%>
       <br><br>
-      <div class="greeting">
-      <% if @current_user.present? %>
-        Hi, <%= @current_user.name %>
-      <% end %>
-      </div>
+
 </div>

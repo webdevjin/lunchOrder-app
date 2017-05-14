@@ -1,24 +1,28 @@
-# README
+# Project2: Ruby on Rails application
+#### Developed by: Jin Liaskos, GA-wdi20, Sydney 2017
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Live Demo: https://lunchorder-app.herokuapp.com/
 
-Things you may want to cover:
+Project name: Kidz Eatz, School canteen online
 
-* Ruby version
+About the stack
+* Rails:
+- Version Rails 5.0.2
 
-* System dependencies
-
-* Configuration
+* Gems:
+- sass-rails 5.0
+- bcrypt 3.1.7
+- stripe 1.43.0
 
 * Database creation
+- postgreSQL 9.6
 
-* Database initialization
+* Development
+An ecommerce web site. Basic functionality is working. User can sign up, login and update account summary.
+Shopping cart functions are also working from placing order, view order summary through to payment gateway.
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Upcoming features:
+- User admin
+- More food categories
+- Order summary update functions such as edit, delete
+- Extended features such as parents forum, kids games, news feeds
